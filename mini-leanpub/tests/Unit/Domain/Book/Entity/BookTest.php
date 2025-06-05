@@ -27,4 +27,13 @@ class BookTest extends TestCase
         $book = new Book('UUID', null, 'Description', 25.9, 'path_book', 'text/markdown');
         $book->validate();
     }
+
+    public function testIfBookValidationThrowsExceptionToAnInvalidDescription()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid Entity: Description');
+
+        $book = new Book('UUID', 'Titulo Livro', null, 25.9, 'path_book', 'text/markdown');
+        $book->validate();
+    }
 }
