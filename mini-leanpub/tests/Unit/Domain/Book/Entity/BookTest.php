@@ -6,7 +6,6 @@ use MiniLeanpub\Domain\Book\Entity\Book;
 use PHPUnit\Framework\TestCase;
 
 use Exception;
-use Mockery\Expectation;
 
 class BookTest extends TestCase
 {
@@ -39,7 +38,7 @@ class BookTest extends TestCase
 
     public function testIfBookValidationThrowExpectionToAnInvalidPrice()
     {
-        $this->expectException(Expectation::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage('Invalid Entity: Price');
 
         $book = new Book('UUID', 'Titulo Livro', 'Description', -10, 'path_book', 'text/markdown');

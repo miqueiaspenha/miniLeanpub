@@ -10,7 +10,8 @@ class Book
     public function __construct(
         private ?string $id,
         private ?string $title,
-        private ?string $description
+        private ?string $description,
+        private ?float $price
     ) {}
 
     public function validate()
@@ -18,5 +19,6 @@ class Book
         if (!$this->id) throw new Exception('Invalid Entity: ID');
         if (!$this->title) throw new Exception('Invalid Entity: Title');
         if (!$this->description) throw new Exception('Invalid Entity: Description');
+        if ($this->price < 0) throw new Exception('Invalid Entity: Price');
     }
 }
