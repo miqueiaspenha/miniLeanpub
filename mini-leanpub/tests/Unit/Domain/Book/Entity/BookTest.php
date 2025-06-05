@@ -53,4 +53,13 @@ class BookTest extends TestCase
         $book = new Book('UUID', 'Titulo Livro', 'Description', 25.9, null, 'text/markdown');
         $book->validate();
     }
+
+    public function testIfBookValidationThrowsExceptionToValidBookMimeType()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid Entity: MimeType');
+
+        $book = new Book('UUID', 'Titulo Livro', 'Descrição Livro', 25.9, 'book_path', 'application/json');
+        $book->validate();
+    }
 }
