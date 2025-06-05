@@ -44,4 +44,13 @@ class BookTest extends TestCase
         $book = new Book('UUID', 'Titulo Livro', 'Description', -10, 'path_book', 'text/markdown');
         $book->validate();
     }
+
+    public function testIfBookValidationThrowsExceptionToAnInvalidBookPath()
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid Entity: Path Book');
+
+        $book = new Book('UUID', 'Titulo Livro', 'Description', 25.9, null, 'text/markdown');
+        $book->validate();
+    }
 }
