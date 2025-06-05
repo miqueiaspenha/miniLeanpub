@@ -11,7 +11,8 @@ class Book
         private ?string $id,
         private ?string $title,
         private ?string $description,
-        private ?float $price
+        private ?float $price,
+        private ?string $bookPath
     ) {}
 
     public function validate()
@@ -20,5 +21,6 @@ class Book
         if (!$this->title) throw new Exception('Invalid Entity: Title');
         if (!$this->description) throw new Exception('Invalid Entity: Description');
         if ($this->price < 0) throw new Exception('Invalid Entity: Price');
+        if (!$this->bookPath) throw new Exception('Invalid Entity: Path Book');
     }
 }
