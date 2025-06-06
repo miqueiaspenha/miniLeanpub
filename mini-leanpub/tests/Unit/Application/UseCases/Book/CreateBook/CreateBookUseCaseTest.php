@@ -32,7 +32,7 @@ class CreateBookUseCaseTest extends TestCase
 
         $data = $result->getData();
 
-        $this->assertEquals('a5544894-d498-4b6e-a881-169b23b5721b', $data['id']);
+        $this->assertEquals('a5544894-d498-4b6e-a881-169b23b5721b', $data['bookCode']);
         $this->assertEquals('My Awesome Book', $data['title']);
     }
 

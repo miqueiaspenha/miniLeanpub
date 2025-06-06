@@ -18,7 +18,7 @@ class CreateBookUseCase
     {
         $data = $this->input->getData();
         $entity = new Book(
-            $data['id'],
+            $data['bookCode'],
             $data['title'],
             $data['description'],
             $data['price'],
