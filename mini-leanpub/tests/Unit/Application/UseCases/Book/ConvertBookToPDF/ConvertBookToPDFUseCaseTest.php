@@ -54,6 +54,7 @@ class ConvertBookToPDFUseCaseTest extends TestCase
     {
         $mock = $this->getMockBuilder(BookConverterQueueSender::class)
             ->onlyMethods(['sendToQueue'])
+            ->setConstructorArgs(['72479eaa-62a8-4ddb-8d6e-4c35c6c7f700'])
             ->getMock();
 
         $mock->expects($this->once())

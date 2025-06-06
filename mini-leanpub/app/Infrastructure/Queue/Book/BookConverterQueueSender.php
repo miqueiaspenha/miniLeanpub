@@ -2,9 +2,18 @@
 
 namespace MiniLeanpub\Infrastructure\Queue\Book;
 
-use MiniLeanpub\Domain\Book\Queue\QueueInterface;
+use App\Jobs\Book\ConvertBookJob;
+use MiniLeanpub\Domain\Shared\Queue\QueueInterface;
 
 class BookConverterQueueSender implements QueueInterface
 {
-    public function sendToQueue() {}
+    public function __construct(
+        private string $bookCode
+    ) {}
+
+    public function sendToQueue(): bool
+    {
+        ConvertBookJob::dispatch($this->bookCode);
+        return true;
+    }
 }
