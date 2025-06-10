@@ -21,6 +21,6 @@ class ConvertBookToPDFUseCase
 
         $this->queue->sendToQueue($book->book_code);
 
-        return new ConvertBookToPDFOutputDTO($book->book_code);
+        return new ConvertBookToPDFOutputDTO(bookCode: $book->book_code);
     }
 }

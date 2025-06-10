@@ -39,7 +39,7 @@ class CreateBookUseCaseTest extends TestCase
     private function getRepositoryMock()
     {
         $return = new stdClass();
-        $return->id = 'a5544894-d498-4b6e-a881-169b23b5721b';
+        $return->book_code = 'a5544894-d498-4b6e-a881-169b23b5721b';
         $return->title = 'My Awesome Book';
         $return->description = 'My Awesome Book Desc';
         $return->price = 25.9;
